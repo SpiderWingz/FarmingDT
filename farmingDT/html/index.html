@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <title>Farmland Stewardship</title>
+</head>
+<body>
+  <main id="app" class="hidden" aria-hidden="true">
+    <section class="board" aria-label="Farmland stewardship">
+      <header class="masthead">
+        <div class="masthead-copy">
+          <p id="eyebrow" class="eyebrow">PUBLIC FARMING</p>
+          <h1 id="title"></h1>
+          <p id="subtitle" class="subtitle"></p>
+        </div>
+        <div class="header-actions">
+          <span class="header-status">PUBLIC PLOT</span>
+          <button id="close-button" class="close-button" type="button" aria-label="Close farming menu">×</button>
+        </div>
+      </header>
+
+      <section class="plot-stats" aria-label="Plot information">
+        <div class="plot-stat"><span>PLOT</span><strong id="plot-label">Public Field</strong></div>
+        <div class="plot-stat"><span>LAYOUT</span><strong id="plot-layout">—</strong></div>
+        <div class="plot-stat"><span>FURROWS</span><strong id="plot-capacity">—</strong></div>
+        <div class="plot-stat"><span>ACCESS</span><strong id="plot-access">PUBLIC</strong></div>
+      </section>
+
+      <nav class="plot-tabs" role="tablist" aria-label="Farm actions">
+        <button class="filter active" data-filter="all" type="button">FURROWS</button>
+        <button class="filter" data-filter="seed" type="button">SEEDS</button>
+        <button class="filter" data-filter="water" type="button">WATER</button>
+        <button class="filter" data-filter="fertilizer" type="button">FERTILIZER</button>
+        <button class="filter" data-filter="treatment" type="button">TREATMENT</button>
+      </nav>
+
+      <div class="content">
+        <section class="work-area">
+          <div class="field-tools">
+            <label class="search-field" for="furrow-search">SEARCH FURROWS
+              <input id="furrow-search" type="search" placeholder="Search crops or status…" autocomplete="off">
+            </label>
+            <div class="field-sort"><p id="field-count" class="count">SELECT A FURROW TO TEND</p><span>SORT: FURROW</span></div>
+          </div>
+          <section class="grid-panel">
+            <div class="subheading">
+              <div>
+                <p class="section-label">FURROW GRID</p>
+                <h2>Field Satchel</h2>
+              </div>
+              <p class="count">SELECT A FURROW TO TEND</p>
+            </div>
+            <div id="slot-list" class="slot-grid"></div>
+          </section>
+
+          <section id="provision-panel" class="provision-panel" hidden>
+            <div class="subheading supplies-heading">
+              <div>
+                <p class="section-label">FIELD PROVISIONS</p>
+                <h2 id="provision-title">Choose a supply</h2>
+              </div>
+              <p class="count">Inventory shown</p>
+            </div>
+            <div id="supply-list" class="supply-grid"></div>
+          </section>
+        </section>
+      </div>
+
+      <aside class="selected-panel details-panel">
+        <div class="selected-copy">
+          <p class="section-label">SELECTED FURROW</p>
+          <h2 id="selected-name">Choose a furrow</h2>
+          <p id="selected-description" class="muted">Select a field cell to tend it.</p>
+        </div>
+        <div id="metrics" class="metrics"></div>
+        <div class="details-actions">
+          <p id="action-help" class="action-help">Choose a field action.</p>
+          <div id="quick-actions" class="quick-actions"></div>
+        </div>
+      </aside>
+
+      <footer class="footer"><span>PUBLIC FIELDS BELONG TO EVERYONE</span><span>ESC TO CLOSE</span></footer>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
